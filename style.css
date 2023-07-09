@@ -1,0 +1,60 @@
+
+body{
+    background-color: #C4C4C4;
+}
+
+.app{
+    margin: 150px auto;
+    max-width: 500px;
+}
+.app__input{
+    background-color: white;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+}
+.input__searchLine{
+    height: 55px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 0 60px 0 20px;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+}
+.input__autocompleete{
+    margin: 0;
+    padding: 10px 8px;
+    max-height: 220px;
+    list-style-type: none;
+    overflow-y: hidden;
+    display: none;
+}
+.input__autocompleete--active{
+    display: block;
+}
+.autocompleete__elem{
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.autocompleete__elem:hover{
+    background-color: #efefef;
+}
+.app__repoList{
+    margin: 0;
+    padding: 10px 8px;
+    list-style-type: none;
+}
+.repoList__elem{
+    font-size: 18px;
+    padding: 20px 20px;
+}
+.removeBtn{
+    background-color: rgb(204, 14, 14);
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
