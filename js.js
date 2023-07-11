@@ -17,20 +17,17 @@ async function getRepositories(key) {
     if (!response.ok) {
       throw new Error(`Server response failed. Error status: ${response.status}`);
     }
-    return await response.json();
+    repositories = await response.json();
   } catch (error) {
     throw new Error(`Failed to fetch repositories: ${error.message}`);
   }
 }
-async function createAutoComplite(searchValue){
-  {
+function createAutoComplite(){
     autocomplite.classList.add('input__autocompleete--active');
-    repositories = await getRepositories(searchValue);
     autocomplite.textContent = "";
     repositories.items.slice(0, 5).forEach(repo => {
       autocomplite.insertAdjacentHTML("beforeend", `<li class="autocompleete__elem">${repo.name}</li>`);
     });
-  }
 }
 const debouncedAutoComplete = debounce(async (value) => {
   if (value.trim() === "") {
@@ -38,7 +35,8 @@ const debouncedAutoComplete = debounce(async (value) => {
     autocomplite.classList.remove('input__autocompleete--active');
     return;
   }
-  await createAutoComplite(value);
+  await getRepositories(value);
+  createAutoComplite();
 }, 500);
 
 searchLine.addEventListener("keyup", (event) => {
